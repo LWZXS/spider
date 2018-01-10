@@ -1,0 +1,5173 @@
+{
+  "title": "统一申办接口集合",
+  "version": "1.0.0",
+  "engine": "mockjs",
+  "rulebase": "./interfaceRules/",
+  "status": "online",
+  "servers": [
+    {
+      "name": "政务开发平台CommonService",
+      "id": "CommonService",
+      "host": "192.168.0.123",
+      "port": "7002"
+    },
+    {
+      "name": "表单工具1.0",
+      "id": "CustomForm",
+      "host": "192.168.0.22",
+      "port": "701"
+    },
+    {
+      "name": "审批系统接口",
+      "id": "ApproveInterface",
+      "host": "192.168.0.152",
+      "port": "7001"
+    },
+    {
+      "name": "表单工具3.0",
+      "id": "common",
+      "host": "192.168.0.152",
+      "port": "7001"
+    },
+    {
+      "name": "电子材料库接口",
+      "id": "ApprLicenseMgr",
+      "host": "192.168.0.152",
+      "port": "7022"
+    },
+    {
+      "name": "附件上传下载接口(需要配制成外网地址)",
+      "id": "Attach",
+      "host": "192.168.0.152",
+      "port": "7001"
+    },
+    {
+      "name": "我的事务栏目",
+      "id": "ApplyService",
+      "host": "222.84.136.110",
+      "port": "80"
+    },
+    {
+      "name": "电子证照",
+      "id": "License",
+      "host": "19.224.4.9",
+      "port": "80"
+    },
+    {
+      "name": "同步到电子材料库",
+      "id": "saveFile",
+      "host": "zw.minstone.com.cn",
+      "port": "80"
+    },
+    {
+      "name": "ServiceMS信箱的接口",
+      "id": "ServiceMS",
+      "host": "192.168.0.136",
+      "port": "80"
+    },
+    {
+      "name": "Word表单对外接口",
+      "id": "word",
+      "host": "zw.minstone.com.cn",
+      "port": "80"
+    },
+    {
+      "name": "市登录接口",
+      "id": "cityLogin",
+      "host": "172.16.13.139",
+      "port": "9080"
+    },
+    {
+      "name": "EMS运单跟踪信息查询接口",
+      "id": "ems",
+      "host": "211.156.193.140",
+      "port": "8000"
+    },
+    {
+      "name": "环保保存之前调用的接口",
+      "id": "before",
+      "host": "zw.minstone.com.cn",
+      "port": "80"
+    },
+    {
+      "name": "单位内审系统",
+      "id": "auditSystem",
+      "host": "zw.minstone.com.cn",
+      "port": "80"
+    },
+    {
+      "name": "项目编码相关接口",
+      "id": "ediis",
+      "host": "192.168.19.218",
+      "port": "8080"
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "验证统一认证网厅用户是否存在接口",
+      "id": "zw.bundOutUserExist",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://ip:port/CommonService/api/user/bundOutUserExist/query.v"
+      },
+      "options": {
+        "path": "/CommonService/api/user/bundOutUserExist/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "uniteCode": ""
+      }
+    },
+    {
+      "name": "获取审批事项配置信息接口",
+      "id": "zw.itemConfig",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/apprItem/itemConfig/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/apprItem/itemConfig/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "approveSeq": ""
+      }
+    },
+    {
+      "name": "获取事项业务表单列表",
+      "id": "zw.getApprFormList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/apprItem/formList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/apprItem/formList/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "approveSeq": ""
+      }
+    },
+    {
+      "name": "显示编辑表单",
+      "id": "zw.showEditForm",
+      "pactType": "http",
+      "serverId": "CustomForm",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CustomForm/showEditForm.action"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CustomForm/showEditForm.action",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "approveSeq": ""
+      }
+    },
+    {
+      "name": "获取某个业务分类的配置信息接口",
+      "id": "zw.bussinessConfig",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/apprItem/bussinessConfig/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/apprItem/bussinessConfig/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "approveSeq": "",
+        "typeId": ""
+      }
+    },
+    {
+      "name": "获取办件所属事项的配置信息接口",
+      "id": "ct.bussinessConfig",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/bussinessConfig/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/bussinessConfig/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "获取事项的业务分类列表接口",
+      "id": "zw.bussinessList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/apprItem/bussinessList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/apprItem/bussinessList/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "approveSeq": "",
+        "pageRowNum": "999999",
+        "pageIndex": "1"
+      }
+    },
+    {
+      "name": "获取审批事项办事指南信息接口",
+      "id": "zw.itemInfo",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/apprItem/itemInfo/2/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/apprItem/itemInfo/2/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "approveSeq": ""
+      }
+    },
+    {
+      "name": "启动办件接口(审批3.0)",
+      "id": "zw.startControl",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/startControl/1/add.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/startControl/1/add.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "approveSeq": "",
+        "userCode": "",
+        "typeId": "",
+        "com": "",
+        "applyArea": "",
+        "controlType": ""
+      }
+    },
+    {
+      "name": "获取办件申请人信息",
+      "id": "zw.controlCust",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/controlCust/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/controlCust/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "获取办件快递信息列表",
+      "id": "zw.expressInfo",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/expressInfo/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/expressInfo/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "更新办件申请人信息",
+      "id": "zw.controlCustUpdate",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/controlCust/update.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/controlCust/update.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "unionSeq": "",
+        "batchSeq": "",
+        "custName": "",
+        "custContactPerson": "",
+        "custCardId": "",
+        "custCerId": "",
+        "mobilePhone": "",
+        "telephone": "",
+        "custAddr": ""
+      }
+    },
+    {
+      "name": "业务表单链接配置",
+      "id": "zw.businessForms",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001"
+      },
+      "options": {},
+      "payload": {}
+    },
+    {
+      "name": "办件附件删除接口",
+      "id": "zw.attachDelete",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/attach/delete.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/attach/delete.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "stuffId": "",
+        "seq": ""
+      }
+    },
+    {
+      "name": "办件附件下载接口",
+      "id": "zw.attachDownload",
+      "pactType": "http",
+      "serverId": "Attach",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/attach/downLoad/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/attach/downLoad/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "stuffId": "",
+        "seq": ""
+      }
+    },
+    {
+      "name": "查询办件附件列表接口",
+      "id": "zw.attachList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/attach/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/attach/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "stuffId": "",
+        "seq": "",
+        "pageRowNum": "999999",
+        "pageIndex": "1"
+      }
+    },
+    {
+      "name": "办件附件下载接口",
+      "id": "zw.attachDownLoad",
+      "pactType": "http",
+      "serverId": "Attach",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/attach/downLoad/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/attach/downLoad/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "stuffId": "",
+        "seq": ""
+      }
+    },
+    {
+      "name": "上传组件TokenURL",
+      "id": "zw.tokenURL",
+      "pactType": "http",
+      "serverId": "Attach",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/attach/token/query.v"
+      },
+      "options": {
+        "path": "/CommonService/api/attach/token/query.v"
+      },
+      "payload": {}
+    },
+    {
+      "name": "办件多附件上传接口",
+      "id": "zw.streamForFlash",
+      "pactType": "http",
+      "serverId": "Attach",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/attach/streamForFlash/add.v"
+      },
+      "options": {
+        "path": "/CommonService/api/attach/streamForFlash/add.v"
+      },
+      "payload": {}
+    },
+    {
+      "name": "上传组件uploadURL",
+      "id": "zw.uploadURL",
+      "pactType": "http",
+      "serverId": "Attach",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/attach/stream/add.v"
+      },
+      "options": {
+        "path": "/CommonService/api/attach/stream/add.v"
+      },
+      "payload": {}
+    },
+    {
+      "name": "获取用户的递地址信息列表",
+      "id": "zw.getExpressAddrList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/express/getExpressAddrList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/express/getExpressAddrList/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "pageRowNum": "",
+        "pageIndex": ""
+      }
+    },
+    {
+      "name": "新增邮寄地址",
+      "id": "zw.addExpressAddr",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/express/addExpressAddr/add.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/express/addExpressAddr/add.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "userName": "",
+        "userAddr": "",
+        "mobilePhone": "",
+        "postCode": "",
+        "userCardId": "",
+        "province": "",
+        "city": "",
+        "townArea": ""
+      }
+    },
+    {
+      "name": "更新邮寄地址",
+      "id": "zw.updateExpressAddr",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/express/updateExpressAddr/update.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/express/updateExpressAddr/update.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "seq": "",
+        "userCode": "",
+        "userName": "",
+        "userAddr": "",
+        "mobilePhone": "",
+        "postCode": "",
+        "userCardId": "",
+        "province": "",
+        "city": "",
+        "townArea": ""
+      }
+    },
+    {
+      "name": "设置为默认快递地址",
+      "id": "zw.setDefaultExpressAddr",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/express/setDefaultExpressAddr/update.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/express/setDefaultExpressAddr/update.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "seq": "",
+        "userCode": ""
+      }
+    },
+    {
+      "name": "删除快递地址信息",
+      "id": "zw.delExpressAddr",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/express/delExpressAddr/delete.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/express/delExpressAddr/delete.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "seq": "",
+        "userCode": ""
+      }
+    },
+    {
+      "name": "获取某个邮寄地址信息",
+      "id": "zw.getExpressAddr",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/express/getExpressAddr/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/express/getExpressAddr/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "seq": ""
+      }
+    },
+    {
+      "name": "保存办件快递信息接口",
+      "id": "zw.addExpressInfo",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/expressInfo/add.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/expressInfo/add.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "seq": "",
+        "controlSeq": "",
+        "type": ""
+      }
+    },
+    {
+      "name": "查询办件材料列表接口",
+      "id": "zw.getStuffList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/stuffList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/stuffList/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "获取某个用户办件信息列表",
+      "id": "zw.controlProgressList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/controlProgressList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/controlProgressList/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "acceptBeginTime": "",
+        "acceptEndTime": "",
+        "submitBeginTime": "",
+        "submitEndTime": "",
+        "source": "",
+        "approveStatus": "",
+        "controlStatus": "",
+        "approveSeq": "",
+        "pageRowNum": "",
+        "pageIndex": "",
+        "isProxy": "",
+        "isUnion": ""
+      }
+    },
+    {
+      "name": "获取一表式主办件的协办件列表接口",
+      "id": "zw.controlSubContList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/union/subContList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "path": "/CommonService/api/union/subContList/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "删除办件草稿件接口",
+      "id": "zw.controlDelete",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/delete.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/delete.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "根据办件流水号，查看办件信息",
+      "id": "zw.getControlInfo",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/ApproveInterface/api/control/getControlInfo/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/ApproveInterface/api/control/getControlInfo/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "表单工具",
+      "id": "zw.editForm",
+      "pactType": "http",
+      "serverId": "common",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/common/minstone/form/editForm.do?code=BASE_ROLE&keyVal="
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/ApproveInterface/api/control/getControlInfo/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "提交办件",
+      "id": "zw.submitControl",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/submitControl/1/update.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/submitControl/1/update.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "获取一表式申报主题和分类接口",
+      "id": "zw.unionSubject",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/union/subject/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/union/subject/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "investSeq": "",
+        "parentSeq": "",
+        "fullTree": ""
+      }
+    },
+    {
+      "name": "获取预约信息列表",
+      "id": "zw.reserveInfoList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/reserve/reserveInfoList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/reserve/reserveInfoList/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        },
+        "payload": {
+          "userCode": "",
+          "paperCode": "",
+          "mobilePhone": "",
+          "reserveDate": "",
+          "dealAddrFlag": "",
+          "pageIndex": ""
+        }
+      }
+    },
+    {
+      "name": "打印类表单链接",
+      "id": "zw.showPrintForm",
+      "pactType": "http",
+      "serverId": "CustomForm",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn/CustomForm/showPrintForm.action"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CustomForm/showPrintForm.action",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        },
+        "payload": {
+          "userCode": "",
+          "paperCode": "",
+          "mobilePhone": "",
+          "reserveDate": "",
+          "dealAddrFlag": ""
+        }
+      }
+    },
+    {
+      "name": "3.0 打印类表单链接",
+      "id": "zw.printForm.3",
+      "pactType": "http",
+      "serverId": "common",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn/common/minstone/form/printForm.do"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/common/minstone/form/printForm.do",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        },
+        "payload": {}
+      }
+    },
+    {
+      "name": "打印类表单链接",
+      "id": "zw.printForm",
+      "pactType": "http",
+      "serverId": "common",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn/common/minstone/form/printForm.do?code=print_YWBD_SJXW_NYQYHZSQDY"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/common/minstone/form/printForm.do",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        },
+        "payload": {}
+      }
+    },
+    {
+      "name": "获取用户绑定关系列表",
+      "id": "zw.userBindList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/user/userBindList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/user/userBindList/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "type": "",
+        "bindUserName": "",
+        "pageRowNum": "999999",
+        "pageIndex": "1"
+      }
+    },
+    {
+      "name": "获取某个业务可预约的日期时段",
+      "id": "zw.reserveDate",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/reserve/reserveDateList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/reserve/reserveDateList/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "approveSeq": "",
+        "busiCode": "",
+        "reserveDate": "",
+        "afterDays": ""
+      }
+    },
+    {
+      "name": "获取审批事项基本信息接口获取预约业务编号",
+      "id": "zw.reserveCode",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/apprItem/itemConfig/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/apprItem/itemConfig/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "approveSeq": ""
+      }
+    },
+    {
+      "name": "用户绑定经办人或子公司",
+      "id": "zw.userBind",
+      "serverId": "CommonService",
+      "pactType": "http",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/user/userBind/add.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/user/userBind/add.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "type": "",
+        "bindUserCode": ""
+      }
+    },
+    {
+      "name": "用户解除绑定的经办人或子公司",
+      "id": "zw.userUnBind",
+      "serverId": "CommonService",
+      "pactType": "http",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/user/userUnBind/delete.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/user/userUnBind/delete.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "unBindUserCode": ""
+      }
+    },
+    {
+      "name": "获取网厅用户信息接口",
+      "id": "zw.outUserInfoQuery",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/user/outUserInfo/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/user/outUserInfo/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": ""
+      }
+    },
+    {
+      "name": "更新网厅用户信息接口",
+      "id": "zw.outUserInfoUpdate",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/user/outUserInfo/update.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/user/outUserInfo/update.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {}
+    },
+    {
+      "name": "根据项目编码获取项目",
+      "id": "zw.proIdProjectList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/project/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/project/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "prjId": ""
+      }
+    },
+    {
+      "name": "获取用户项目信息列表",
+      "id": "zw.userProjectList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/project/projectList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/project/projectList/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "pageIndex": "1",
+        "pageRowNum": "999999"
+      }
+    },
+    {
+      "name": "更新办件项目信息",
+      "id": "zw.updateContProj",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/contProj/1/update.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/contProj/1/update.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "projId": ""
+      }
+    },
+    {
+      "name": "新增项目信息",
+      "id": "zw.addProjectInfo",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/project/add.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/project/add.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "prjName": "",
+        "prjDesc": "",
+        "prjAddress": "",
+        "prjContent": "",
+        "prjScale": "",
+        "itemInvest": "",
+        "investorType": ""
+      }
+    },
+    {
+      "name": "获取一表式分类关联事项列表",
+      "id": "zw.subjectItemInfo",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/union/subjectItemInfo/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/union/subjectItemInfo/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "typeSeq": ""
+      }
+    },
+    {
+      "name": "获取一表式申报阶段信息列表接口",
+      "id": "zw.unionStageInfo",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/union/stageInfo/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/union/stageInfo/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "typeSeq": ""
+      }
+    },
+    {
+      "name": "获取短消息列表接口",
+      "id": "zw.msgList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/message/msgList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/message/msgList/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "isRead": "",
+        "msgTitle": "",
+        "isDeal": "",
+        "pageRowNum": "",
+        "pageIndex": ""
+      }
+    },
+    {
+      "name": "获取办件材料补正意见接口",
+      "id": "zw.apprIdea",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/apprIdea/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/apprIdea/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "获取通知书列表",
+      "id": "zw.noticeList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/message/noticeList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/message/noticeList/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "approveName": "",
+        "controlSeq": "",
+        "noticeName": "",
+        "pageRowNum": "99999",
+        "pageIndex": ""
+      }
+    },
+    {
+      "name": "获取回执页列表",
+      "id": "zw.receiptList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/message/receiptList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/message/receiptList/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "approveName": "",
+        "controlSeq": "",
+        "noticeName": "",
+        "pageRowNum": "",
+        "pageIndex": ""
+      }
+    },
+    {
+      "name": "提交预约信息",
+      "id": "zw.setReserve",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/reserve/reserveInfo/add.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/reserve/reserveInfo/add.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "busiCode": "",
+        "userCode": "",
+        "userName": "",
+        "paperType": "",
+        "paperCode": "",
+        "mobilePhone": "",
+        "comName": "",
+        "reserveDate": "",
+        "reserveStartTime": "",
+        "reserveEndTime": "",
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "撤回已提交办件接口",
+      "id": "zw.contWithdraw",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/contWithdraw/update.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/contWithdraw/update.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "userCode": ""
+      }
+    },
+    {
+      "name": "复制办件接口",
+      "id": "zw.copyControl",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/copyControl/add.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/copyControl/add.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "userCode": ""
+      }
+    },
+    {
+      "name": "启动一表式办件接口",
+      "id": "zw.startUnionControl",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/union/startUnionControl/add.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/union/startUnionControl/add.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "projId": "",
+        "typeSeq": "",
+        "approveSeq": "",
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "办件材料补正接口",
+      "id": "zw.stuffEdit.update",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/stuffEdit/update.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/stuffEdit/update.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "projId": "",
+        "typeSeq": "",
+        "approveSeq": ""
+      }
+    },
+    {
+      "name": "获取预约信息列表接口(审核模式)",
+      "id": "zw.apprReserveInfoList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/reserve/ApprReserveInfoList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/reserve/ApprReserveInfoList/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "approveStatus": "",
+        "approveResult": "",
+        "overdue": "",
+        "paperCode": "",
+        "mobilePhone": "",
+        "reserveDate": "",
+        "pageRowNum": "",
+        "pageIndex": ""
+      }
+    },
+    {
+      "name": "删除某个预约信息",
+      "id": "zw.deleteInfo",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/reserve/reserveInfo/delete.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/reserve/reserveInfo/delete.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "reserveSeq": "",
+        "userCode": ""
+      }
+    },
+    {
+      "name": "取消某个预约信息",
+      "id": "zw.quxiaoInfo",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/reserve/reserveInfo/cancel/update.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/reserve/reserveInfo/cancel/update.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "reserveSeq": "",
+        "userCode": ""
+      }
+    },
+    {
+      "name": "获取一表式分类申请公共材料列表",
+      "id": "zw.unionSubjectStuffList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/union/contStuffList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/union/contStuffList/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "短消息设置已读接口",
+      "id": "zw.message",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/message/update.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/message/update.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "type": "",
+        "msgSeq": ""
+      }
+    },
+    {
+      "name": "提交一表式办件接口",
+      "id": "zw.submitUnionControl",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/union/submitUnionControl/update.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/union/submitUnionControl/update.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "userCode": ""
+      }
+    },
+    {
+      "name": "获取地区列表",
+      "id": "zw.areaList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/area/areaList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/area/areaList/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "areaLevel": "",
+        "pareAreaSeq": ""
+      }
+    },
+    {
+      "name": "获取地区列表（已完成）",
+      "id": "zw.getAreaList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/apprItem/areaList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/apprItem/areaList/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "areaLevel": "",
+        "pareAreaSeq": "",
+        "approveSeq": ""
+      }
+    },
+    {
+      "name": "获取某个地区信息",
+      "id": "zw.getAreaInfo",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/area/areaInfo/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "CommonService/api/area/areaInfo/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "areaSeq": ""
+      }
+    },
+    {
+      "name": "短消息删除接口",
+      "id": "zw.delMessage",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/message/delete.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/message/delete.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "msgSeq": ""
+      }
+    },
+    {
+      "name": "取消某个预约信息",
+      "id": "zw.reserve",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/reserve/reserveInfo/delete.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/reserve/reserveInfo/delete.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "reserveSeq": "",
+        "userCode": ""
+      }
+    },
+    {
+      "name": "保存业务表单接口",
+      "id": "zw.saveSelfDefineForm",
+      "pactType": "http",
+      "serverId": "ApproveInterface",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/formData/save.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/formData/save.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "cId": "",
+        "fmDataId": "",
+        "exId": "",
+        "columnName": "",
+        "itemContent": "",
+        "unionControlSeq": ""
+      }
+    },
+    {
+      "name": "电子材料库附件上传接口",
+      "id": "zw.addLicense",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/attach/license/add.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/attach/license/add.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "stuffId": "",
+        "filePath": ""
+      }
+    },
+    {
+      "name": "查看用户目录信息",
+      "id": "zw.getFolderByUser",
+      "pactType": "http",
+      "serverId": "ApprLicenseMgr",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn/ApprLicenseMgr/api/stufftree/getFolderByUser.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "path": "/ApprLicenseMgr/api/stufftree/getFolderByUser.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "parentId": "",
+        "creator": "",
+        "keyWord": ""
+      }
+    },
+    {
+      "name": "查看用户某一目录下的文件与文件夹",
+      "id": "db.getCertByUser",
+      "pactType": "http",
+      "serverId": "ApprLicenseMgr",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn/ApprLicenseMgr/api/stufftree/getCertByUser.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "path": "/ApprLicenseMgr/api/stufftree/getCertByUser.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "parentId": "",
+        "creator": "",
+        "keyWord": "",
+        "delFlag": 0,
+        "pageRowNum": 9999
+      }
+    },
+    {
+      "name": "获取附件编号",
+      "id": "db.uploads",
+      "pactType": "http",
+      "serverId": "ApprLicenseMgr",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/ApprLicenseMgr/api/stufftree/getattachSeq.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "path": "/ApprLicenseMgr/api/stufftree/getattachSeq.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {}
+    },
+    {
+      "name": "保存上传附件的相关信息",
+      "id": "db.saveAttach",
+      "pactType": "http",
+      "serverId": "ApprLicenseMgr",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/ApprLicenseMgr/api/stufftree/saveAttach.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "path": "/ApprLicenseMgr/api/stufftree/saveAttach.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "parentId": "-1",
+        "fileIds": "",
+        "creator": "",
+        "attachSeq": ""
+      }
+    },
+    {
+      "name": "移动文件或文件夹",
+      "id": "db.moveFileByUser",
+      "pactType": "http",
+      "serverId": "ApprLicenseMgr",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn/ApprLicenseMgr/api/stufftree/moveFileByUser.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "path": "/ApprLicenseMgr/api/stufftree/moveFileByUser.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "parentId": "-1",
+        "fileIds": "",
+        "fileClasses": ""
+      }
+    },
+    {
+      "name": "上传附件接口",
+      "id": "db.StuffUploadServlet",
+      "pactType": "http",
+      "serverId": "Attach",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/ApprLicenseMgr/api/StuffUploadServlet"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "path": "/ApprLicenseMgr/api/StuffUploadServlet",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {}
+    },
+    {
+      "name": "上传附件接口Token",
+      "id": "db.TokenServlet",
+      "pactType": "http",
+      "serverId": "Attach",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn/ApprLicenseMgr/api/TokenServlet"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "path": "/ApprLicenseMgr/api/TokenServlet",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {}
+    },
+    {
+      "name": "创建文件夹",
+      "id": "db.createFolder",
+      "pactType": "http",
+      "serverId": "ApprLicenseMgr",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn/ApprLicenseMgr/api/stufftree/createFolder.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "path": "/ApprLicenseMgr/api/stufftree/createFolder.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "parentId": "",
+        "folderName": "",
+        "creator": ""
+      }
+    },
+    {
+      "name": "删除文件与文件夹",
+      "id": "db.delFlag",
+      "pactType": "http",
+      "serverId": "ApprLicenseMgr",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn/ApprLicenseMgr/api/stufftree/delFlag.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "path": "/ApprLicenseMgr/api/stufftree/delFlag.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "delFlag": "",
+        "fileIds": "",
+        "fileClasses": ""
+      }
+    },
+    {
+      "name": "彻底删除文件",
+      "id": "db.delRecycleFile",
+      "pactType": "http",
+      "serverId": "ApprLicenseMgr",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn/ApprLicenseMgr/api/stufftree/delRecycleFile.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "path": "/ApprLicenseMgr/api/stufftree/delRecycleFile.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "fileIds": ""
+      }
+    },
+    {
+      "name": "下载材料附件",
+      "id": "db.downFile",
+      "pactType": "http",
+      "serverId": "Attach",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn/ApprLicenseMgr/api/stufftree/downFileByUser.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "path": "/ApprLicenseMgr/api/stufftree/downFileByUser.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "fileId": ""
+      }
+    },
+    {
+      "name": "重命名文件",
+      "id": "db.renameFileByUser",
+      "pactType": "http",
+      "serverId": "ApprLicenseMgr",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn/ApprLicenseMgr/api/stufftree/renameFileByUser.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "path": "/ApprLicenseMgr/api/stufftree/renameFileByUser.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "fileName": "",
+        "fileId": "",
+        "creator": ""
+      }
+    },
+    {
+      "name": "查询附件信息",
+      "id": "db.queryAttachInfo",
+      "pactType": "http",
+      "serverId": "ApprLicenseMgr",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/ApprLicenseMgr/api/stufftree/queryAttachInfo.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "path": "/ApprLicenseMgr/api/stufftree/queryAttachInfo.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "fileIds": ""
+      }
+    },
+    {
+      "name": "配置导航",
+      "id": "gz.cinfoList",
+      "pactType": "http",
+      "serverId": "ApplyService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "querystring",
+        "online": "http://222.84.136.110:9001/ApplyService/api/cms/content/cinfoList"
+      },
+      "options": {
+        "host": "222.84.136.110",
+        "port": "80",
+        "path": "/ApplyService/api/cms/content/cinfoList",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=utf-8"
+        }
+      },
+      "payload": {
+        "cateId": "3a8655b933bb40469b42dea4c5c1a64c"
+      }
+    },
+    {
+      "name": "用户登录验证接口",
+      "id": "zw.user",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/user/login.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/user/login.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "userPWD": ""
+      }
+    },
+    {
+      "name": "获取材料列表(旧版)",
+      "id": "zw.getClkStuff",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/clk/stuff.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/clk/stuff.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "action": "",
+        "param": {
+          "attach_creator": ""
+        }
+      }
+    },
+    {
+      "name": "材料关联网厅办事(旧版)",
+      "id": "zw.uploadAttachFromLicense",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/OuterNetWeb/app/uploadAttachFromLicense"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/OuterNetWeb/app/uploadAttachFromLicense",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "action": "",
+        "param": {
+          "stuff": "",
+          "control_seq": "",
+          "stuff_id": ""
+        }
+      }
+    },
+    {
+      "name": "查询附件信息(旧版)",
+      "id": "zw.getClkLicenseStuffList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/clk/license/stuffList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/clk/license/stuffList/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "attachSeqs": ""
+      }
+    },
+    {
+      "name": "注册网厅用户接口",
+      "id": "zw.outUserInfo",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/user/outUserInfo/add.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/user/outUserInfo/add.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "name": "",
+        "sex": "",
+        "paperType": "",
+        "paperCode": "",
+        "eMail": "",
+        "mobilePhone": "",
+        "telPhone": "",
+        "postcode": "",
+        "address": "",
+        "uType": "",
+        "isReal": "",
+        "isSupply": "",
+        "uSource": "",
+        "idCard": "",
+        "type": "",
+        "corporation": "",
+        "corporationIdType": "",
+        "corporationId": "",
+        "handlerName": "",
+        "handlerIdType": "",
+        "addrAreaCode": "",
+        "license": "",
+        "orgCode": "",
+        "regCapital": "",
+        "icbcLocation": "",
+        "credNum": "",
+        "taxNum": "",
+        "handlerPostCode": "",
+        "handlerAddress": "",
+        "isProvince": "",
+        "handlerId": ""
+      }
+    },
+    {
+      "name": "发送手机验证码",
+      "id": "zw.sendVerificationCode",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/sms/sendVerificationCode/add.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/sms/sendVerificationCode/add.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "targetMobile": "",
+        "smsModelCode": ""
+      }
+    },
+    {
+      "name": "校验手机验证码",
+      "id": "zw.checkVerificationCode",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/sms/checkVerificationCode/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/sms/checkVerificationCode/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "targetMobile": "",
+        "verificationCode": ""
+      }
+    },
+    {
+      "name": "电子证照附件上传接口",
+      "id": "zw.uploadElectronicLicense",
+      "pactType": "http",
+      "serverId": "Attach",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/attach/electronicLicense/add.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/attach/electronicLicense/add.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "stuffId": "",
+        "attachName": "",
+        "licenseCode": ""
+      }
+    },
+    {
+      "name": "复制文件信息，网厅上传材料关联保存到材料库(对外提供接口)",
+      "id": "zw.saveFile",
+      "pactType": "http",
+      "serverId": "saveFile",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/ApprLicenseMgr/api/stufftree/saveFile.v"
+      },
+      "options": {
+        "path": "/ApprLicenseMgr/api/stufftree/saveFile.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "param": ""
+      }
+    },
+    {
+      "name": "获取办件所属事项的业务配置信息接口",
+      "id": "zw.controlBussinessConfig",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "/CommonService/api/control/bussinessConfig/query.v"
+      },
+      "options": {
+        "path": "/CommonService/api/control/bussinessConfig/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "获取可预约的单位列表",
+      "id": "zw.unitList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/reserve/unitList/1/query.v"
+      },
+      "options": {
+        "path": "/CommonService/api/reserve/unitList/1/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "areaSeq": ""
+      }
+    },
+    {
+      "name": "获取某个单位可预约业务类型列表",
+      "id": "zw.reserveTypeList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/reserve/reserveTypeList/query.v"
+      },
+      "options": {
+        "path": "/CommonService/api/reserve/reserveTypeList/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "unitSeq": "",
+        "pageRowNum": "",
+        "pageIndex": ""
+      }
+    },
+    {
+      "name": "获取某个预约信息接口",
+      "id": "zw.reserveSuccessInfo",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/reserve/reserveInfo/query.v"
+      },
+      "options": {
+        "path": "/CommonService/api/reserve/reserveInfo/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "reserveSeq": ""
+      }
+    },
+    {
+      "name": "修改预约信息日期接口",
+      "id": "zw.updateReserveSuccessInfo",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/reserve/reserveInfo/update.v"
+      },
+      "options": {
+        "path": "/CommonService/api/reserve/reserveInfo/update.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "reserveSeq": "",
+        "reserveDate": "",
+        "reserveStartTime": "",
+        "reserveEndTime": ""
+      }
+    },
+    {
+      "name": "查询办件进度结果信息接口",
+      "id": "zw.controlProgress",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn/CommonService/api/control/controlProgress/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/controlProgress/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "更新办件项目信息(普通申报)",
+      "id": "zw.updateContProjOrdinary",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/contProj/1/update.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/contProj/1/update.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "prjName": ""
+      }
+    },
+    {
+      "name": "获取令牌（用于柳州我的收藏）",
+      "id": "apply.gettoken",
+      "pactType": "http",
+      "serverId": "ApplyService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/service/token/gettoken/json"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/service/token/gettoken/json",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "key": "fbd33ac8b1dc4fd5aacc73fc09ac454e",
+        "secret": "123456"
+      }
+    },
+    {
+      "name": "获取收藏事项列表（用于柳州我的收藏)",
+      "id": "apply.collectionList",
+      "pactType": "http",
+      "serverId": "ApplyService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "querystring",
+        "online": "http://222.84.136.110:9001/ApplyService/api/collection/list"
+      },
+      "options": {
+        "host": "222.84.136.110",
+        "port": "80",
+        "path": "/ApplyService/api/collection/list",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "access_token": "",
+        "user": "",
+        "itemName": "",
+        "itemCode": "",
+        "pageRowNum": "10",
+        "pageIndex": "1"
+      }
+    },
+    {
+      "name": "取消收藏（用于柳州我的收藏)",
+      "id": "apply.collectionDel",
+      "pactType": "http",
+      "serverId": "ApplyService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "querystring",
+        "online": "http://222.84.136.110:9001/ApplyService/api/collection/del"
+      },
+      "options": {
+        "host": "222.84.136.110",
+        "port": "80",
+        "path": "/ApplyService/api/collection/del",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "access_token": "",
+        "ids": "bb2bb23b12b3,b12b3b1b3"
+      }
+    },
+    {
+      "name": "获取足迹列表（用于柳州我的足迹)",
+      "id": "apply.footPrintList",
+      "pactType": "http",
+      "serverId": "ApplyService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "querystring",
+        "online": "http://222.84.136.110:9001/ApplyService/api/footPrint/list"
+      },
+      "options": {
+        "host": "222.84.136.110",
+        "port": "80",
+        "path": "/ApplyService/api/footPrint/list",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "access_token": "",
+        "user": "",
+        "itemName": "",
+        "itemCode": "",
+        "pageRowNum": "10",
+        "pageIndex": "1"
+      }
+    },
+    {
+      "name": "足迹删除列表（用于柳州我的足迹)",
+      "id": "apply.footPrintDel",
+      "pactType": "http",
+      "serverId": "ApplyService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "querystring",
+        "online": "http://222.84.136.110:9001/ApplyService/api/footPrint/del"
+      },
+      "options": {
+        "host": "222.84.136.110",
+        "port": "80",
+        "path": "/ApplyService/api/footPrint/del",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "access_token": "",
+        "ids": "bb2bb23b12b3,b12b3b1b3"
+      }
+    },
+    {
+      "name": "电子证照登录",
+      "id": "zw.electroLicenseLogin",
+      "pactType": "http",
+      "serverId": "License",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "JSON",
+        "online": "http://19.224.4.9:80/ApplyService/api/footPrint/del"
+      },
+      "options": {
+        "host": "19.224.4.9",
+        "port": "80",
+        "path": "/license-app/security/login",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      },
+      "payload": {
+        "account": "",
+        "password": "",
+        "app_secret": "",
+        "org_code": "",
+        "app_key": ""
+      }
+    },
+    {
+      "name": "电子证照列表",
+      "id": "zw.electroLicenseList",
+      "pactType": "http",
+      "serverId": "License",
+      "urls": {
+        "isNausea": "false",
+        "isElectroLicese": "true",
+        "path": "/license-app/license/list_auth_license",
+        "parameterFormat": "JSON",
+        "online": "http://19.224.4.9/license-app/license/list_auth_license"
+      },
+      "options": {
+        "host": "19.224.4.9",
+        "port": "80",
+        "path": "/license-app/license/list_auth_license",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      },
+      "payload": {
+        "access_token": "",
+        "context": "",
+        "operator": "",
+        "app_key": "",
+        "identity_number": "",
+        "service_item_code": ""
+      }
+    },
+    {
+      "name": "新增办件评价信息接口",
+      "id": "zw.evaluateInfo",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/evaluate/evaluateInfo/add.v"
+      },
+      "options": {
+        "path": "/CommonService/api/evaluate/evaluateInfo/add.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "userCode": "",
+        "evalutionValue": "",
+        "evalutionDesc": "",
+        "eRemark": ""
+      }
+    },
+    {
+      "name": "获取某个办件的评价信息接口",
+      "id": "zw.pjEvaluateInfo",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/evaluate/evaluateInfo/query.v"
+      },
+      "options": {
+        "path": "/CommonService/api/evaluate/evaluateInfo/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "用户找回密码接口(身份验证)",
+      "id": "zw.resetPwd",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/user/outUserInfo/resetPwd/query.v"
+      },
+      "options": {
+        "path": "/CommonService/api/user/outUserInfo/resetPwd/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "mobilePhone": ""
+      }
+    },
+    {
+      "name": "用户找回密码接口(重置密码)",
+      "id": "zw.czPwd",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/user/outUserInfo/resetPwd/update.v"
+      },
+      "options": {
+        "path": "/CommonService/api/user/outUserInfo/resetPwd/update.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "mobilePhone": "",
+        "userPWD": ""
+      }
+    },
+    {
+      "name": "验证用户是否存在接口",
+      "id": "zw.outUserInfoExist",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/user/outUserInfoExist/query.v"
+      },
+      "options": {
+        "path": "/CommonService/api/user/outUserInfoExist/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": ""
+      }
+    },
+    {
+      "name": "获取用户操作日志列表接口",
+      "id": "zw.userLogList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/user/userLogList/query.v"
+      },
+      "options": {
+        "path": "/CommonService/api/user/userLogList/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "pageRowNum": "",
+        "pageIndex": ""
+      }
+    },
+    {
+      "name": "我的收藏信件列表",
+      "id": "ServiceMS.userColecMsg",
+      "pactType": "http",
+      "serverId": "ServiceMS",
+      "urls": {
+        "isNausea": "true",
+        "parameterFormat": "JSON",
+        "online": "http://192.168.0.136:9001/ServiceMS/api/query.do"
+      },
+      "options": {
+        "host": "192.168.0.136",
+        "port": "80",
+        "path": "/ServiceMS/api/query.do",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+          "X-Requested-With": "XMLHttpRequest"
+        }
+      },
+      "payload": {
+        "queryParam": {
+          "userCode": "u0001",
+          "serviceId": "10018",
+          "serviceType": "2",
+          "queryParamJson": {
+            "msgCode": "",
+            "page": "1",
+            "rows": "10",
+            "sort": "",
+            "order": "",
+            "msgType": "",
+            "keyWord": "",
+            "msgBelong": "",
+            "msgSource": "",
+            "msgBelongDept": "",
+            "userId": ""
+          }
+        }
+      }
+    },
+    {
+      "name": "我的信件列表",
+      "id": "ServiceMS.userMsg",
+      "pactType": "http",
+      "serverId": "ServiceMS",
+      "urls": {
+        "isNausea": "true",
+        "parameterFormat": "JSON",
+        "online": "http://192.168.0.136:9001/ServiceMS/api/query.do"
+      },
+      "options": {
+        "host": "192.168.0.136",
+        "port": "80",
+        "path": "/ServiceMS/api/query.do",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+          "X-Requested-With": "XMLHttpRequest"
+        }
+      },
+      "payload": {
+        "queryParam": {
+          "userCode": "u0001",
+          "serviceId": "10018",
+          "serviceType": "6",
+          "queryParamJson": {
+            "msgCode": "",
+            "page": "1",
+            "rows": "10",
+            "sort": "",
+            "order": "",
+            "msgType": "",
+            "keyWord": "",
+            "msgBelong": "",
+            "msgSource": "",
+            "msgBelongDept": "",
+            "userId": ""
+          }
+        }
+      }
+    },
+    {
+      "name": "点击信件无用",
+      "id": "ServiceMS.msgUselessClick",
+      "pactType": "http",
+      "serverId": "ServiceMS",
+      "urls": {
+        "isNausea": "true",
+        "parameterFormat": "JSON",
+        "online": "http://192.168.0.136:9001/api/query.do"
+      },
+      "options": {
+        "host": "192.168.0.136",
+        "port": "80",
+        "path": "/ServiceMS/api/query.do",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "X-Requested-With": "XMLHttpRequest"
+        }
+      },
+      "payload": {
+        "queryParam": {
+          "userCode": "u0001",
+          "serviceId": "10018",
+          "serviceType": "9",
+          "queryParamJson": {
+            "msgCode": "",
+            "ip": "",
+            "userId": ""
+          }
+        }
+      }
+    },
+    {
+      "name": "点击信件有用",
+      "id": "ServiceMS.msgUseFulClick",
+      "pactType": "http",
+      "serverId": "ServiceMS",
+      "urls": {
+        "isNausea": "true",
+        "parameterFormat": "JSON",
+        "online": "http://192.168.0.136:9001/ServiceMS/api/query.do"
+      },
+      "options": {
+        "host": "192.168.0.136",
+        "port": "80",
+        "path": "/ServiceMS/api/query.do",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "X-Requested-With": "XMLHttpRequest"
+        }
+      },
+      "payload": {
+        "queryParam": {
+          "userCode": "u0001",
+          "serviceId": "10018",
+          "serviceType": "8",
+          "queryParamJson": {
+            "msgCode": "",
+            "ip": "",
+            "userId": ""
+          }
+        }
+      }
+    },
+    {
+      "name": "点击取消信件收藏",
+      "id": "ServiceMS.cancelMsgCollect",
+      "pactType": "http",
+      "serverId": "ServiceMS",
+      "urls": {
+        "isNausea": "true",
+        "parameterFormat": "JSON",
+        "online": "http://192.168.0.136:9001/ServiceMS/api/query.do"
+      },
+      "options": {
+        "host": "192.168.0.136",
+        "port": "80",
+        "path": "/ServiceMS/api/query.do",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+          "X-Requested-With": "XMLHttpRequest"
+        }
+      },
+      "payload": {
+        "queryParam": {
+          "userCode": "u0001",
+          "serviceId": "10018",
+          "serviceType": "11",
+          "queryParamJson": {
+            "msgCode": "",
+            "userId": ""
+          }
+        }
+      }
+    },
+    {
+      "name": "点击查看我的信件详细",
+      "id": "ServiceMS.msgMyDetail",
+      "pactType": "http",
+      "serverId": "ServiceMS",
+      "urls": {
+        "isNausea": "true",
+        "parameterFormat": "JSON",
+        "online": "http://192.168.0.136:9001/ServiceMS/api/query.do"
+      },
+      "options": {
+        "host": "192.168.0.136",
+        "port": "80",
+        "path": "/ServiceMS/api/query.do",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+          "X-Requested-With": "XMLHttpRequest"
+        }
+      },
+      "payload": {
+        "queryParam": {
+          "userCode": "u0001",
+          "serviceId": "10018",
+          "serviceType": "",
+          "queryParamJson": {
+            "msgCode": "",
+            "userId": ""
+          }
+        }
+      }
+    },
+    {
+      "name": "所有信件详情",
+      "id": "ServiceMS.msgAllDetail",
+      "pactType": "http",
+      "serverId": "ServiceMS",
+      "urls": {
+        "isNausea": "true",
+        "parameterFormat": "JSON",
+        "online": "http://192.168.0.136:9001/ServiceMS/api/query.do"
+      },
+      "options": {
+        "host": "192.168.0.136",
+        "port": "80",
+        "path": "/ServiceMS/api/query.do",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+          "X-Requested-With": "XMLHttpRequest"
+        }
+      },
+      "payload": {
+        "queryParam": {
+          "userCode": "u0001",
+          "serviceId": "10018",
+          "serviceType": "7",
+          "queryParamJson": {
+            "msgCode": ""
+          }
+        }
+      }
+    },
+    {
+      "name": "删除用户操作日志接口",
+      "id": "zw.userLogDelete",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/user/userLog/delete.v"
+      },
+      "options": {
+        "path": "/CommonService/api/user/userLog/delete.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "logSeq": ""
+      }
+    },
+    {
+      "name": "启动批量申请办件接口",
+      "id": "zw.startBatchControl",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/startBatchControl/add.v"
+      },
+      "options": {
+        "path": "/CommonService/api/control/startBatchControl/add.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "approveSeq": "",
+        "userCode": "",
+        "projName": "",
+        "typeId": ""
+      }
+    },
+    {
+      "name": "获取批量申请子办件的列表接口",
+      "id": "zw.batchControlSub",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/batchControlSub/query.v"
+      },
+      "options": {
+        "path": "/CommonService/api/control/batchControlSub/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "batchSeq": "",
+        "userCode": ""
+      }
+    },
+    {
+      "name": "提交批量申请办件",
+      "id": "zw.submitBatchControl",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/submitBatchControl/update.v"
+      },
+      "options": {
+        "path": "/CommonService/api/control/submitBatchControl/update.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "batchSeq": "",
+        "userCode": ""
+      }
+    },
+    {
+      "name": "根据个人身份证号或企业注册号或企业信用代码获取证照信息列表",
+      "id": "zw.licenseList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/ApprLicenseInterface/api/license/licenseList/query.v"
+      },
+      "options": {
+        "path": "/ApprLicenseInterface/api/license/licenseList/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "certNumber": "",
+        "regNum": ""
+      }
+    },
+    {
+      "name": "根据证照流水号获取证照信息详情",
+      "id": "zw.licenseInfo",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/ApprLicenseInterface/api/license/licenseInfo/query.v"
+      },
+      "options": {
+        "path": "ApprLicenseInterface/api/license/licenseInfo/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "certSeq": ""
+      }
+    },
+    {
+      "name": "根据证照流水号获取证照基本信息详情",
+      "id": "zw.viewCertInfo",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/ApprLicenseMgr/cert/pub/viewCertInfo.do"
+      },
+      "options": {
+        "path": "/ApprLicenseMgr/cert/pub/viewCertInfo.do",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "code": "templeteInput",
+        "keyVal": "certSeq"
+      }
+    },
+    {
+      "name": "获取表单业务数据",
+      "id": "zw.formDataXML",
+      "pactType": "http",
+      "serverId": "CustomForm",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CustomForm/getFormDataXML.do"
+      },
+      "options": {
+        "path": "/CustomForm/getFormDataXML.do",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "sysCode": "",
+        "busTypeId": "",
+        "params": "",
+        "version": ""
+      }
+    },
+    {
+      "name": "Word表单对外接口",
+      "id": "zw.changeVerify",
+      "pactType": "http",
+      "serverId": "word",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "/ApprProcessInterface/hb/VerifyTable/changeVerify"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/ApprProcessInterface/hb/VerifyTable/changeVerify",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "userCode": ""
+      }
+    },
+    {
+      "name": "表单附件同步到审批的接口",
+      "id": "zw.loadSynAttachMent",
+      "pactType": "http",
+      "serverId": "word",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/ApprProcessInterface/hb/VerifyTable/loadSynAttachMent"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/ApprProcessInterface/hb/VerifyTable/loadSynAttachMent",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "userCode": ""
+      }
+    },
+    {
+      "name": "市登录接口",
+      "id": "shi.cityLogin",
+      "pactType": "http",
+      "serverId": "cityLogin",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://172.16.13.139:9080/MTFP/authorize"
+      },
+      "options": {
+        "path": "/MTFP/authorize",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "req": "",
+        "logwaySize": "1",
+        "authtype": "auth_platform",
+        "iscompany": "0",
+        "client_id": "A928HPFT",
+        "redirect_uri": "http://10.196.32.3",
+        "userName": "",
+        "userPwd": ""
+      }
+    },
+    {
+      "name": "市登录获取访问令牌",
+      "id": "shi.accessToken",
+      "pactType": "http",
+      "serverId": "cityLogin",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://172.16.13.139:9080/MTFP/access_token"
+      },
+      "options": {
+        "path": "/MTFP/access_token",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "req": ""
+      }
+    },
+    {
+      "name": "市登录获取用户信息",
+      "id": "shi.userInformation",
+      "pactType": "http",
+      "serverId": "cityLogin",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://172.16.13.139:9080/MTFP/user_info"
+      },
+      "options": {
+        "path": "/MTFP/user_info",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "req": ""
+      }
+    },
+    {
+      "name": "EMS运单跟踪信息查询接口",
+      "id": "ems.mail",
+      "pactType": "http",
+      "serverId": "ems",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "JSON",
+        "online": "http://211.156.193.140:8000/cotrackapi/api/track/mail"
+      },
+      "options": {
+        "path": "/cotrackapi/api/track/mail",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+          "X-Requested-With": "XMLHttpRequest"
+        }
+      },
+      "payload": {}
+    },
+    {
+      "name": "电子材料自动上传功能",
+      "id": "zw.autoUpload",
+      "pactType": "http",
+      "serverId": "ApprLicenseMgr",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/ApprLicenseInterface/clk/attachment/autoUpload.v"
+      },
+      "options": {
+        "path": "/ApprLicenseInterface/clk/attachment/autoUpload.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "stuffId": "",
+        "stuffType": "",
+        "userCode": ""
+      }
+    },
+    {
+      "name": "获取表单项目名到办件表",
+      "id": "zw.synProjectName",
+      "pactType": "http",
+      "serverId": "word",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "/ApprProcessInterface/hb/VerifyTable/synProjectName"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/ApprProcessInterface/hb/VerifyTable/synProjectName",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "userCode": ""
+      }
+    },
+    {
+      "name": "环保表单保存之前调用的接口",
+      "id": "zw.before",
+      "pactType": "http",
+      "serverId": "before",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "/ApprProcessInterface/hb/VerifyTable/loadSynCommonSeq"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/ApprProcessInterface/hb/VerifyTable/loadSynCommonSeq",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {}
+    },
+    {
+      "name": "根据办件流水号，查看办件信息",
+      "id": "zw.getControlInfoQuery",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/getControlInfo/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/getControlInfo/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "根据办件流水号，提交用户退回的办件",
+      "id": "zw.submitRetreatControl",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/submitRetreatControl/update.v"
+      },
+      "options": {
+        "path": "/CommonService/api/control/submitRetreatControl/update.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "单位内审系统-已办列表",
+      "id": "pt.doneList",
+      "pactType": "http",
+      "serverId": "auditSystem",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/common/workflowapi/doneListByPage"
+      },
+      "options": {
+        "path": "/common/workflowapi/doneListByPage",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "loginByUrl": "",
+        "busSeq": "",
+        "busName": "",
+        "startTime": "",
+        "endTime": "",
+        "pageNo": "",
+        "tstate": "",
+        "pageSize": ""
+      }
+    },
+    {
+      "name": "单位内审系统-待办列表",
+      "id": "pt.todoList",
+      "pactType": "http",
+      "serverId": "auditSystem",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/common/workflowapi/toDoListByPage"
+      },
+      "options": {
+        "path": "/common/workflowapi/toDoListByPage",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "loginByUrl": "",
+        "busSeq": "",
+        "busName": "",
+        "startTime": "",
+        "endTime": "",
+        "pageNo": "",
+        "tstate": "",
+        "pageSize": ""
+      }
+    },
+    {
+      "name": "内审经办人 -  获取流程信息接口",
+      "id": "pt.getFlowInfo",
+      "pactType": "http",
+      "serverId": "auditSystem",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/common/workflowapi/getFlowInfo"
+      },
+      "options": {
+        "path": "/common/workflowapi/getFlowInfo",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "loginByUrl": "",
+        "flowKey": ""
+      }
+    },
+    {
+      "name": "内审经办人 -  获取每个流程阶段信息接口",
+      "id": "pt.getDealUserByStepDef",
+      "pactType": "http",
+      "serverId": "auditSystem",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/common/workflowapi/getDealUserByStepDef"
+      },
+      "options": {
+        "path": "/common/workflowapi/getDealUserByStepDef",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "loginByUrl": "",
+        "flowId": ""
+      }
+    },
+    {
+      "name": "内审经办人 -  设置步骤经办人接口",
+      "id": "pt.setDealUser",
+      "pactType": "http",
+      "serverId": "auditSystem",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/common/workflowapi/setDealUser"
+      },
+      "options": {
+        "path": "/common/workflowapi/setDealUser",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "loginByUrl": "",
+        "stepId": "",
+        "dealUser": ""
+      }
+    },
+    {
+      "name": "内审经办人 -  获取流程步骤的经办人接口",
+      "id": "pt.getStepDefDealUser",
+      "pactType": "http",
+      "serverId": "auditSystem",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/common/workflowapi/getStepDefDealUser"
+      },
+      "options": {
+        "path": "/common/workflowapi/getStepDefDealUser",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "loginByUrl": "",
+        "stepId": ""
+      }
+    },
+    {
+      "name": "单位内审系统 -  获取审批痕迹接口",
+      "id": "pt.getDealInfoList",
+      "pactType": "http",
+      "serverId": "auditSystem",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/common/workflowapi/getDealInfoList"
+      },
+      "options": {
+        "path": "/common/workflowapi/getDealInfoList",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "loginByUrl": "",
+        "busSeq": ""
+      }
+    },
+    {
+      "name": "单位内审系统 -  获取下一步步骤信息接口",
+      "id": "pt.getNextStep",
+      "pactType": "http",
+      "serverId": "auditSystem",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/common/workflowapi/getNextStep"
+      },
+      "options": {
+        "path": "/common/workflowapi/getNextStep",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "loginByUrl": "",
+        "currStepId": ""
+      }
+    },
+    {
+      "name": "单位内审系统 -  发起流程接口",
+      "id": "pt.startFlow",
+      "pactType": "http",
+      "serverId": "auditSystem",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/common/workflowapi/startFlow"
+      },
+      "options": {
+        "path": "/common/workflowapi/startFlow",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "loginByUrl": "",
+        "flowKey": "",
+        "busSeq": "",
+        "busName": "",
+        "opinion": ""
+      }
+    },
+    {
+      "name": "单位内审系统 - 发起到下一步接口",
+      "id": "pt.sendFlow",
+      "pactType": "http",
+      "serverId": "auditSystem",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/common/workflowapi/sendFlow"
+      },
+      "options": {
+        "path": "/common/workflowapi/sendFlow",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "loginByUrl": "",
+        "taskId": "",
+        "dealUser": "",
+        "opinion": ""
+      }
+    },
+    {
+      "name": "单位内审系统 - 结束流程接口",
+      "id": "pt.finishFlow",
+      "pactType": "http",
+      "serverId": "auditSystem",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/common/workflowapi/finishFlow"
+      },
+      "options": {
+        "path": "/common/workflowapi/finishFlow",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "loginByUrl": "",
+        "taskId": "",
+        "opinion": ""
+      }
+    },
+    {
+      "name": "单位内审系统 - 获取当前流程步骤接口",
+      "id": "pt.getCurStep",
+      "pactType": "http",
+      "serverId": "auditSystem",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/common/workflowapi/getCurStep"
+      },
+      "options": {
+        "path": "/common/workflowapi/getCurStep",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "loginByUrl": "",
+        "busSeq": ""
+      }
+    },
+    {
+      "name": "通过法制办编号获取事项列表接口",
+      "id": "zw.itemListByCode",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/apprItem/itemListByCode/query.v"
+      },
+      "options": {
+        "path": "/CommonService/api/apprItem/itemListByCode/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "areaSeq": "",
+        "areaLevel": "",
+        "parentAreaSeq": "",
+        "gzItemCode": "",
+        "itemCode": ""
+      }
+    },
+    {
+      "name": "根据办件流水号，修改办件内审状态",
+      "id": "zw.buzFlowStatus",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/buzFlowStatus/update.v"
+      },
+      "options": {
+        "path": "/CommonService/api/control/buzFlowStatus/update.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "buzFlowStatus": ""
+      }
+    },
+    {
+      "name": "内审发起流程接口",
+      "id": "zw.startFlow",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/common/workflowapi/startFlow"
+      },
+      "options": {
+        "path": "/common/workflowapi/startFlow",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "loginByUrl": "",
+        "flowKey": "",
+        "flowMappingKey": "",
+        "busSeq": "",
+        "busName": "",
+        "opinion": ""
+      }
+    },
+    {
+      "name": "获取流程步骤的经办人接口",
+      "id": "zw.stepDefDealUser",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/common/workflowapi/getStepDefDealUser"
+      },
+      "options": {
+        "path": "/common/workflowapi/getStepDefDealUser",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "loginByUrl": "",
+        "stepId": ""
+      }
+    },
+    {
+      "name": "申请材料列表",
+      "id": "zw.programStuffList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/apprItem/programStuffList/1/query.v"
+      },
+      "options": {
+        "path": "/CommonService/api/apprItem/programStuffList/1/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "approveSeq": "",
+        "pageRowNum": "",
+        "pageIndex": ""
+      }
+    },
+    {
+      "name": "发起到下一步接口",
+      "id": "zw.sendFlow",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/common/workflowapi/sendFlow"
+      },
+      "options": {
+        "path": "/common/workflowapi/sendFlow",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "loginByUrl": "",
+        "taskId": "",
+        "stepState": "",
+        "opinion": "",
+        "dealUser": ""
+      }
+    },
+    {
+      "name": "结束流程接口",
+      "id": "zw.finishFlow",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/common/workflowapi/finishFlow"
+      },
+      "options": {
+        "path": "/common/workflowapi/finishFlow",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {}
+    },
+    {
+      "name": "启动办件接口(审批3.0)(材料分离)",
+      "id": "zw.startControlMs",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/startControl/2/add.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/startControl/2/add.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "approveSeq": "",
+        "userCode": "",
+        "typeId": "",
+        "com": "",
+        "applyArea": "",
+        "controlType": ""
+      }
+    },
+    {
+      "name": "删除办件草稿件接口(材料分离)",
+      "id": "zw.controlDeleteMs",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/1/delete.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/1/delete.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "查询办件材料列表接口(材料分离)",
+      "id": "zw.getStuffListMs",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/stuffList/1/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/stuffList/1/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "提交办件(材料分离)",
+      "id": "zw.submitControlMs",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/submitControl/2/update.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/submitControl/2/update.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "复制办件接口(材料分离)",
+      "id": "zw.copyControlMs",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/copyControl/1/add.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/copyControl/1/add.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "userCode": ""
+      }
+    },
+    {
+      "name": "获取事项情景式题目列表",
+      "id": "zw.questionList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/scene/questionList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/scene/questionList/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "userCode": ""
+      }
+    },
+    {
+      "name": "通过选项结果查询材料列表",
+      "id": "zw.stuffList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/scene/stuffList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/scene/stuffList/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "userCode": ""
+      }
+    },
+    {
+      "name": "验证用户事项申报权限",
+      "id": "zw.validateItem",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/apprItem/validateItem/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/apprItem/validateItem/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "userCode": ""
+      }
+    },
+    {
+      "name": "保存企业内审经办人接口",
+      "id": "zw.addEnterFlow",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/enterFlow/hander/add.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/enterFlow/hander/add.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "flowId": "",
+        "stepId": "",
+        "stepMans": ""
+      }
+    },
+    {
+      "name": "获取企业内审经办人列表接口",
+      "id": "zw.queryEnterFlow",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/enterFlow/hander/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/enterFlow/hander/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "flowId": "",
+        "stepId": ""
+      }
+    },
+    {
+      "name": "获取一表式分类公共业务表单列表",
+      "id": "zw.getqyslFormList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/union/subjectFormList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/union/subjectFormList/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "flowId": "",
+        "stepId": ""
+      }
+    },
+    {
+      "name": "获取某个通知书详情接口",
+      "id": "zw.noticemr",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/message/notice/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/message/notice/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "flowId": "",
+        "stepId": ""
+      }
+    },
+    {
+      "name": "获取单位列表信息",
+      "id": "zw.unitInfo",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/unit/unitInfo/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/unit/unitInfo/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "flowId": "",
+        "stepId": ""
+      }
+    },
+    {
+      "name": "获取办件表单列表接口",
+      "id": "zw.controlFormList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/formList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/formList/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "flowId": "",
+        "stepId": ""
+      }
+    },
+    {
+      "name": "获取统一认证网厅用户信息接口",
+      "id": "zw.bundOutUserInfo",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/user/bundOutUserInfo/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/user/bundOutUserInfo/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "userCode": ""
+      }
+    },
+    {
+      "name": "获取外网配置表的信息",
+      "id": "zw.outnetConfig",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/sys/outnetConfig/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/sys/outnetConfig/query.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "key": ""
+      }
+    },
+    {
+      "name": "提交评价意见",
+      "id": "ServiceMS.sendAdvice",
+      "pactType": "http",
+      "serverId": "ServiceMS",
+      "urls": {
+        "isNausea": "true",
+        "parameterFormat": "JSON",
+        "online": "http://192.168.0.136:9001/ServiceMS/api/query.do"
+      },
+      "options": {
+        "host": "192.168.0.136",
+        "port": "80",
+        "path": "/ServiceMS/api/query.do",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+          "X-Requested-With": "XMLHttpRequest"
+        }
+      },
+      "payload": {
+        "queryParam": {
+          "userCode": "u0001",
+          "serviceId": "10018",
+          "serviceType": "13",
+          "queryParamJson": {
+            "msgCode": "",
+            "userId": "",
+            "userName": "",
+            "userTel": "",
+            "userEmail": "",
+            "msgTitle": "",
+            "msgBelong": "",
+            "msgCont": "",
+            "msgSource": "",
+            "msgBelongDept": "",
+            "isEmailUser": ""
+          }
+        }
+      }
+    },
+    {
+      "name": "提交内审流程申请接口",
+      "id": "zw.commitEnterFlow",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/enterFlow/flowApply/save.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/enterFlow/flowApply/save.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "controlSeq": "",
+        "applyReason": ""
+      }
+    },
+    {
+      "name": "获取暂存办件的步骤信息接口",
+      "id": "zw.controlStep",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/controlStep/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/controlStep/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "更新暂存办件的步骤信息接口",
+      "id": "zw.controlStepUpdate",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/controlStep/update.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/controlStep/update.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "step": ""
+      }
+    },
+    {
+      "name": "获取回执页订阅邮箱信息接口",
+      "id": "zw.getUserMail",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/message/userMail/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/message/userMail/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "step": ""
+      }
+    },
+    {
+      "name": "添加回执页订阅邮箱信息接口",
+      "id": "zw.addUserMail",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/message/userMail/add.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/message/userMail/add.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "step": ""
+      }
+    },
+    {
+      "name": "通过地区获取大厅列表",
+      "id": "zw.hallInfoList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/hall/hallInfoList/query.v"
+      },
+      "options": {
+        "path": "/CommonService/api/hall/hallInfoList/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {}
+    },
+    {
+      "name": "获取可预约的单位列表接口",
+      "id": "zw.unitTreeList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/reserve/unitTreeList/query.v"
+      },
+      "options": {
+        "path": "/CommonService/api/reserve/unitTreeList/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {}
+    },
+    {
+      "name": "获取可预约业务的列表接口",
+      "id": "zw.reserveTreeList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/reserve/reserveTreeList/query.v"
+      },
+      "options": {
+        "path": "/CommonService/api/reserve/reserveTreeList/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {}
+    },
+    {
+      "name": "修改回执页订阅邮箱信息接口",
+      "id": "zw.updateUserMail",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/message/userMail/update.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/message/userMail/update.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "step": ""
+      }
+    },
+    {
+      "name": "办件量统计接口",
+      "id": "zw.countRoll",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/getControlStatistics/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/getControlStatistics/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "获取所有办件信息列表",
+      "id": "zw.getAllInfo",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/controlInfoList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/controlInfoList/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "获取办件表单列表接口(表单分离)",
+      "id": "zw.getControlFormList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/formList/1/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/formList/1/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "step": ""
+      }
+    },
+    {
+      "name": "保存业务表单接口(表单分离)",
+      "id": "zw.saveControlFormList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/formData/1/save.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/formData/1/save.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "step": ""
+      }
+    },
+    {
+      "name": "扫描传",
+      "id": "zw.attachbase64",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/attach/base64/add.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/attach/base64/add.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "step": ""
+      }
+    },
+    {
+      "name": "获取办理单位的流水号",
+      "id": "zw.unitSeqInfo",
+      "pactType": "http",
+      "serverId": "ApproveInterface",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/ApprItemInterface/api/program/unitSeqInfo/1/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/ApprItemInterface/api/program/unitSeqInfo/1/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "cId": "",
+        "fmDataId": "",
+        "exId": "",
+        "columnName": "",
+        "itemContent": "",
+        "unionControlSeq": ""
+      }
+    },
+    {
+      "name": "获取某个办理单位的事项列表",
+      "id": "zw.sgProgramList",
+      "pactType": "http",
+      "serverId": "ApproveInterface",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/ApprItemInterface/api/program/sgProgramList/1/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/ApprItemInterface/api/program/sgProgramList/1/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "cId": "",
+        "fmDataId": "",
+        "exId": "",
+        "columnName": "",
+        "itemContent": "",
+        "unionControlSeq": ""
+      }
+    },
+    {
+      "name": "获取审批事项流水号",
+      "id": "zw.programInfo",
+      "pactType": "http",
+      "serverId": "ApproveInterface",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/ApprItemInterface/api/program/programInfo/5/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/ApprItemInterface/api/program/programInfo/5/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {}
+    },
+    {
+      "name": "验证项目编码接口",
+      "id": "zw.JYProjectCode",
+      "pactType": "http",
+      "serverId": "ediis",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://192.168.19.218:8080/ediis/minstone/api/JYProjectCode"
+      },
+      "options": {
+        "host": "192.168.19.218",
+        "port": "8080",
+        "path": "/ediis/minstone/api/JYProjectCode",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "cId": "",
+        "fmDataId": "",
+        "exId": "",
+        "columnName": "",
+        "itemContent": "",
+        "unionControlSeq": ""
+      }
+    },
+    {
+      "name": "获取项目信息接口",
+      "id": "zw.getProjectCode",
+      "pactType": "http",
+      "serverId": "ediis",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://192.168.19.218:8080/ediis/minstone/api/getProjectCode"
+      },
+      "options": {
+        "host": "192.168.19.218",
+        "port": "8080",
+        "path": "/ediis/minstone/api/getProjectCode",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "cId": "",
+        "fmDataId": "",
+        "exId": "",
+        "columnName": "",
+        "itemContent": "",
+        "unionControlSeq": ""
+      }
+    },
+    {
+      "name": "查询用户收藏信息列表接口",
+      "id": "zw.collectList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/user/collectList/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/user/collectList/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "type": "",
+        "pageRowNum": "",
+        "pageIndex": ""
+      }
+    },
+    {
+      "name": "查询用户收藏信息列表接口",
+      "id": "zw.getControlStatistics",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/getControlStatistics/1/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/getControlStatistics/1/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "type": "",
+        "pageRowNum": "",
+        "pageIndex": ""
+      }
+    },
+    {
+      "name": "保存办件材料提交方式接口",
+      "id": "zw.saveStuffWay",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/control/saveStuffWay/save.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/control/saveStuffWay/save.v",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "type": "",
+        "pageRowNum": "",
+        "pageIndex": ""
+      }
+    },
+    {
+      "name": "获取通知书列表接口（通知书分离）",
+      "id": "zw.GETnoticeList",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/message/noticeList/1/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/message/noticeList/1/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "userCode": "",
+        "type": "",
+        "pageRowNum": "",
+        "pageIndex": ""
+      }
+    },
+    {
+      "name": "查询相应的地区列表",
+      "id": "zw.areaListb",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/area/areaList/1/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/area/areaList/1/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "step": ""
+      }
+    },
+    {
+      "name": "启动一表式办件接口(一口受理)",
+      "id": "zw.startUnionControlb",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/union/startUnionControl/1/add.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/union/startUnionControl/1/add.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": "",
+        "step": ""
+      }
+    },
+    {
+      "name": "提交一表式办件接口(一口受理)",
+      "id": "zw.submitUnionControlb",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/union/submitUnionControl/1/update.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/union/submitUnionControl/1/update.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": ""
+      }
+    },
+    {
+      "name": "获取一表式办件材料列表接口(一口受理)",
+      "id": "zw.contStuffListb",
+      "pactType": "http",
+      "serverId": "CommonService",
+      "urls": {
+        "isNausea": "false",
+        "parameterFormat": "unformatted",
+        "online": "http://zw.minstone.com.cn:9001/CommonService/api/union/contStuffList/1/query.v"
+      },
+      "options": {
+        "host": "zw.minstone.com.cn",
+        "port": "80",
+        "path": "/CommonService/api/union/contStuffList/1/query.v",
+        "method": "GET",
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      },
+      "payload": {
+        "controlSeq": ""
+      }
+    }
+  ]
+}

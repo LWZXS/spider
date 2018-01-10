@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>node</title>
+    <script src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.min.js"></script>
+</head>
+<body>
+<p style="color: red">该地方会显示上一次的默认配置</p>
+<!--/<form action="/interface" method="post" >-->
+    <!--<iframe width="0" height="0"></iframe>-->
+<ul id="interface-list">
+    <%for(var i=0;i<data.length;i++){%>
+    <li>
+        <p><%=data[i].name%>(<%=data[i].id%>)</p>
+        <lable for="<%=data[i].id%>">host:<input type="text" name="<%=data[i].id%>_host" id="<%=data[i].id%>_host" value="<%=data[i].host%>" class="host"/></lable>
+        <lable for="<%=data[i].id%>">port:<input type="text" name="<%=data[i].id%>_port" id="<%=data[i].id%>_port" value="<%=data[i].port%>" class="port"/></lable>
+    </li>
+    <% }%>
+</ul>
+<input type="submit" value="确认修改" id="btn">
+<!--</form>-->
+</body>
+<script>
+    $(function(){
+        $('#btn').click(function(){
+            console.log(11)
+            var hostList=[];
+            var portList=[];
+            var host_len=$('.host').length;
+            for(var i=0;i<host_len;i++){
+                hostList.push($('.host').eq(i).val())
+                portList.push($('.port').eq(i).val())
+            }
+            hostList=hostList.join(",");
+            portList=portList.join(",");
+            $.ajax({
+                url:'/interface',
+                dataType:'json',
+                type:'POST',
+                data:{
+                    hostList:hostList,
+                    portList:portList
+                },
+                success:function(data){
+                    //console.log(data)
+                }
+            })
+        })
+    })
+
+</script>
+</html>
