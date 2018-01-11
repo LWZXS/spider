@@ -10,11 +10,9 @@
 <!--/<form action="/interface" method="post" >-->
     <!--<iframe width="0" height="0"></iframe>-->
 <ul id="interface-list">
-    <%for(var i=0;i<data.length;i++){%>
+    <%for(var item in data){%>
     <li>
-        <p><%=data[i].name%>(<%=data[i].id%>)</p>
-        <lable for="<%=data[i].id%>">host:<input type="text" name="<%=data[i].id%>_host" id="<%=data[i].id%>_host" value="<%=data[i].host%>" class="host"/></lable>
-        <lable for="<%=data[i].id%>">port:<input type="text" name="<%=data[i].id%>_port" id="<%=data[i].id%>_port" value="<%=data[i].port%>" class="port"/></lable>
+        <%=item%>
     </li>
     <% }%>
 </ul>
@@ -34,7 +32,7 @@
             hostList=hostList.join(",");
             portList=portList.join(",");
             $.ajax({
-                url:'/api/interface',
+                url:'/api/config',
                 dataType:'json',
                 type:'POST',
                 data:{

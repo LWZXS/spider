@@ -4,8 +4,7 @@
  */
 var express = require('express'),
     app = express();
-
-
+var data=require('./config.json')
 
 var config = {
     // debug 为 true 时，用于本地调试
@@ -30,7 +29,7 @@ var config = {
     isWithApply: false, //使用pm2 start app.js -i max 时，可以设置为true，启动redis并且修改下面的信息。应用性能将得到提升
     redisHost: '127.0.0.1',
     redisPort: '6379',
-    area: '汕尾', //不同现场显示不同模板 例如：黄埔，柳州，广东省（配置文件路径 /controllers/pc/affairs/MyAffairs.js）
+    area: data.area.value, //不同现场显示不同模板 例如：黄埔，柳州，广东省（配置文件路径 /controllers/pc/affairs/MyAffairs.js）
     getLicenseUrl: 'http://19.224.4.9', // 获取电子证照地址
     showLicenseUrl: 'http://zzk.gdbs.gov.cn', // 展示电子证照地址
     getMes: 'http://192.168.9.234:8080',
