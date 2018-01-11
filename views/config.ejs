@@ -10,9 +10,30 @@
 <!--/<form action="/interface" method="post" >-->
     <!--<iframe width="0" height="0"></iframe>-->
 <ul id="interface-list">
-    <%for(var item in data){%>
+    <%for(var i=0;i<data.config.length;i++){%>
     <li>
-        <%=item%>
+        <label for="<%=data.config[i].id%>"><%=data.config[i].name%></label>
+        <%if(data.config[i].type=='select'){%>
+        <select name="<%=data.config[i].id%>" id="<%=data.config[i].id%>" class="list">
+            <%for(var n=0;n<data.config[i].options.length;n++){%>
+            <option value="<%=data.config[i].options[n].optionsCode%>"
+                    <%if(data.config[i].options[n].optionsCode==data.config[i].value){ %> selected="selected"<%}%> >
+                <%=data.config[i].options[n].optionsName%>
+            </option>
+            <%}%>
+        </select>
+        <%}else if(data.config[i].type=='text'){%>
+        <input type="text" name="<%=data.config[i].id%>" id="<%=data.config[i].id%>" value="<%=data.config[i].value%>" class="list">
+        <%}else if(data.config[i].type=='radio'){%>
+        <select name="<%=data.config[i].id%>" id="<%=data.config[i].id%>" class="list">
+            <option value="true" <%if(data.config[i].value=='true'){%>selected="selected"<%}%>>
+                是
+            </option>
+            <option value="false" <%if(data.config[i].value=='false'){%>selected="selected"<%}%>>
+                否
+            </option>
+        </select>
+        <%}%>
     </li>
     <% }%>
 </ul>
@@ -22,22 +43,17 @@
 <script>
     $(function(){
         $('#btn').click(function(){
-            var hostList=[];
-            var portList=[];
-            var host_len=$('.host').length;
-            for(var i=0;i<host_len;i++){
-                hostList.push($('.host').eq(i).val())
-                portList.push($('.port').eq(i).val())
+            var list=[];
+            for(var i=0;i<$('.list').length;i++){
+                list.push($('.list').eq(i).val())
             }
-            hostList=hostList.join(",");
-            portList=portList.join(",");
+            list=list.join(",");
             $.ajax({
                 url:'/api/config',
                 dataType:'json',
                 type:'POST',
                 data:{
-                    hostList:hostList,
-                    portList:portList
+                    list:list
                 },
                 success:function(data){
                     console.log(data)

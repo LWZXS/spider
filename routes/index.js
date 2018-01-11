@@ -46,23 +46,39 @@ module.exports = function (app) {
                 }else{
                     console.log('修改服务器接口配置成功');
                     sendData.desc="修改服务器接口配置成功"
-                    res.send(sendData);
                 }
+                res.send(sendData);
             });
         }
     });
 });
     app.post('/api/config', function (req, res, next) {
+        var sendData={status:"200"};
+        var list=req.body.list.split(",");
         fs.readFile('./config.json','UTF-8' ,function (err, data) {
-            if (err) throw err;
-            var config=JSON.parse(data);
-            console.log(config)
-            fs.writeFile('./config.json','a',function(err){
-                if(err) throw err;
-                console.log('修改项目配置成功');
-            });
-            //console.log(json.servers)
-            res.send(json.servers);
+            if (err) {
+                console.log(err);
+                sendData.status="500";
+                sendData.desc="读取config.json文件异常，请联系管理员";
+                res.send(sendData);
+            }else{
+                var json=JSON.parse(data);
+                for(var i=0;i<json.config.length;i++){
+                    json.config[i].value=list[i]
+                }
+                json=JSON.stringify(json)
+                fs.writeFile('./config.json',json,function(err){
+                    if(err){
+                        console.log(err);
+                        sendData.status="500";
+                        sendData.desc="修改config.json文件异常，请联系管理员";
+                    }else{
+                        console.log('修改项目配置成功');
+                        sendData.desc="修改项目配置成功"
+                    }
+                    res.send(sendData);
+                });
+            }
         });
     });
 }
