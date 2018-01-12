@@ -6,6 +6,12 @@ var interface=require('../interface.json')
 
 module.exports = function (app) {
 
+    app.get("/keshihuahoutaiAdministrationsystem/index", function(req,res,next){
+        res.render('index_1',{
+            data:interface.servers
+        });
+    })
+
     app.get('/', function (req, res, next) {
         //var json=JSON.parse(interface);
         res.render('index',{
