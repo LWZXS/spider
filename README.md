@@ -2,4 +2,4 @@
 本来写爬虫的，
 现在改成写可视化配置读取
 安装依赖npm install
-node app启动
+npm start启动
