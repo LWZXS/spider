@@ -51,6 +51,7 @@ module.exports = function (app) {
                     sendData.desc="修改interface.json文件异常，请联系管理员";
                 }else{
                     console.log('修改服务器接口配置成功');
+                    console.log('111');
                     sendData.desc="修改服务器接口配置成功"
                 }
                 res.send(sendData);
